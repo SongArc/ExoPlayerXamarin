@@ -40,6 +40,8 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additions\Com.Google.Android.Exoplayer.Hls.HlsMediaPlaylist.cs" />
+    <Compile Include="Additions\Com.Google.Android.Exoplayer.Hls.Variant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
