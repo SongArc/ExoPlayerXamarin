@@ -1,0 +1,4 @@
+[submodule "ExoPlayerLibrary"]
+	path = ExoPlayerLibrary
+	url = https://github.com/SongArc/ExoPlayer.git
+	branch = dev
