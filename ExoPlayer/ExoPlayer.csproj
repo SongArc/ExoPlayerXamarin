@@ -40,8 +40,8 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Additions\Com.Google.Android.Exoplayer.Hls.HlsMediaPlaylist.cs" />
-    <Compile Include="Additions\Com.Google.Android.Exoplayer.Hls.Variant.cs" />
+    <Compile Include="Additions\Com.Google.Android.Exoplayer.Extractor.DefaultTrackOutput.cs" />
+    <Compile Include="Additions\Com.Google.Android.Exoplayer.Chunk.InitializationChunk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +55,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Xamarin.Android.Bindings.targets" />
   <ItemGroup />
   <ItemGroup>
-    <None Include="Jars\library-1.1.0.jar" />
     <EmbeddedJar Include="Jars\library-custom.jar" />
   </ItemGroup>
 </Project>

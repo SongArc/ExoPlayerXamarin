@@ -9,19 +9,19 @@
 
   <!-- Original code was substituting a derived class which the binder does not like for matching the base interface to reset to match -->
   <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='Format.DecreasingBandwidthComparator']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
-
-  <attr path="/api/package[@name='com.google.android.exoplayer.parser.mp4']/class[@name='Atom']" name="visibility">internal</attr>
+  
+  <!-- <attr path="/api/package[@name='com.google.android.exoplayer.parser.mp4']/class[@name='Atom']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.mp4']/class[@name='DefaultSampleValues']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.mp4']/class[@name='ParsableByteArray']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.mp4']/class[@name='TrackFragment']" name="visibility">internal</attr>
-
-  <!-- Webm parser contains som pseudo-internal java declarations that aren't well handled by the binder -->
+-->
+  <!-- Webm parser contains som pseudo-internal java declarations that aren't well handled by the binder
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultEbmlReader']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultEbmlReader.1']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/class[@name='DefaultEbmlReader.MasterElement']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlEventHandler']" name="visibility">internal</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.parser.webm']/interface[@name='EbmlReader']" name="visibility">internal</attr>
-
+ -->
   <!-- Binder is attempting to turn some protected methods public -->
   <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.ProtectionElementParser']/method[@name='build']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.smoothstreaming']/class[@name='SmoothStreamingManifestParser.SmoothStreamMediaParser']/method[@name='build']" name="visibility">protected</attr>
@@ -37,5 +37,31 @@
   <!-- Original code was substituting a derived class which the binder does not like for matching the base interface to reset to match -->
   <attr path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='CacheSpan']/method[@name='compareTo']/parameter[@name='p0']" name="type">java.lang.Object</attr>
   <attr path="/api/package[@name='com.google.android.exoplayer.upstream.cache']/class[@name='LeastRecentlyUsedCacheEvictor']/method[@name='compare']/parameter" name="type">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.hls']/class[@name='HlsMediaPlaylist.Segment']/method[@name='compareTo']/parameter" name="type">java.lang.Object</attr>
 
-  </metadata>
+  <!-- Classes without declared visibility that need to be public because they are exposed -->
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.mp4']/class[@name='TrackSampleTable']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.ts']/class[@name='ElementaryStreamReader']" name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor.webm']/interface[@name='EbmlReaderOutput']" name="visibility">public</attr>
+
+  <!--
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='getDrmInitData']" name="managedName">ggetDrmInitData</attr>
+  -->
+
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/interface[@name='ChunkExtractorWrapper.SingleTrackOutput']/method[@name='drmInitData']" name="managedName">SetDrmInitData</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='drmInitData']" name="managedName">SetDrmInitData</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='InitializationChunk']/method[@name='drmInitData']" name="managedName">SetDrmInitData</attr>
+  
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/interface[@name='ChunkExtractorWrapper.SingleTrackOutput']/method[@name='seekMap']" name="managedName">SetSeekMap</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='seekMap']" name="managedName">SetSeekMap</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='InitializationChunk']/method[@name='seekMap']" name="managedName">SetSeekMap</attr>
+  
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor']/interface[@name='TrackOutput']/method[@name='format']" name="managedName">SetFormat</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ContainerMediaChunk']/method[@name='format']" name="managedName">SetFormat</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='InitializationChunk']/method[@name='format']" name="managedName">SetFormat</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.chunk']/class[@name='ChunkExtractorWrapper']/method[@name='format']" name="managedName">SetFormat</attr>
+  <attr path="/api/package[@name='com.google.android.exoplayer.extractor']/class[@name='DefaultTrackOutput']/method[@name='format']" name="managedName">SetFormat</attr>
+
+  <remove-node path="/api/package[@name='com.google.android.exoplayer.metadata']/interface[@name='MetadataParser']" />
+
+</metadata>
